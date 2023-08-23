@@ -9,6 +9,31 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-secondary">
+            <div class="container">
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <a class="navbar-brand" href="index.html">Academy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                      <div class="bg-secondary bg-opacity-25 rounded-pill d-flex justify-content-around">
+                
+                
+                        <a href="\cousrses" class="btn btn-sm m-1  btn-dark-soft  rounded-pill " data-bs-toggle="collapse">
+                          Курсы
+                        </a>
+                      </div>
+                    </div>
+                </div>   
+              </div>
+            </div>
+          </nav>
+    </header>
     <main style="min-height: 95vh">
 	
 		<!-- Cookie alert box START -->
@@ -37,9 +62,6 @@
         </div>
     </div>
     <p>
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-        Ментор
-    </button>
     </p>
 </div>
 <!-- Cookie alert box END -->
@@ -176,173 +198,10 @@
 						</div>
 						<!-- Review START -->
 						<div class="col-12">
-							<h5 class="mb-4">Форум урока</h5>
-
+							<h5 class="mb-4">Домашнее задание</h5>
+                            <a>Сделать список работников, Распределить по группам, выучить новые термины. В списке в закрепленном, добавить новые колонки, сделать слияние.</a>
 							<!-- Comment box -->
-							<div id="forum-input-message-container" class="d-flex mb-4">
-    <!-- Avatar -->
-    <div class="avatar avatar-sm flex-shrink-0 me-2">
-        
-        <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-priest-100.png" alt="avatar">
-        
-    </div>
-
-    <form class="w-100 d-flex" action="/courses/19/lessons/189/create_forum_message" method="POST">
-        <textarea class="one form-control pe-4 bg-light" id="forum_comment" rows="1" name="text" placeholder="Добавьте комментарий..."></textarea>
-        <button type="button" class="btn btn-sm btn-primary ms-2 mt-2 mb-0 mt-sm-0" style="overflow:visible" onclick="forum_create_message(19, 189)">Отправить</button>
-    </form>
-</div>
 							
-							<section id="forum-comment-section">
-								
-									<div id="forum_message_container_41">
-    <div class="d-md-flex m-3">
-<!-- Avatar -->
-        <div class="avatar avatar-sm me-4 flex-shrink-0">
-            
-            <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-anonymous-100.png" alt="">
-            
-        </div>
-        <!-- Text -->
-        <div style="width:100%">
-            <div class="d-flex px-0 justify-content-between" style="margin-bottom:0.5rem">
-                <div>
-                    <a><b class="me-2 mb-0" style="color:black">Кирилл Ионкин</b></a>
-                    <a class="text-body small me-2"><i class="far fa-clock me-1 text-primary"></i>{
-                        <span class="text-dark">Jan. 8, 2023, 9:16 p.m.</span></a>
-                </div>
-
-                <div id="forum-message-upvote-container-41">
-                    <a href="javascript:;" class="text-secondary mb-0" onclick="forum_upvote(19,189,41)"> <i class="fas fa-chevron-up me-2"></i></a> 
-                    <a id="forum-message-upvote-41" class="text-success small mb-0 me-2">2</a>
-                    
-                    
-
-                    
-                </div>
-
-            </div>
-            <!-- Info -->
-
-            <div id="forum-message-text-41" class="mb-2 text-break">Было бы хорошо, если можно было бы смотреть результат на каждом этапе написания кода - иначе я запутался. А так инфа годная </div>
-            <div id="forum-message-actions-41">
-                
-                    <a href="javascript:;" class="text-body small mb-0" onclick="forum_create_reply_input(19, 189, 41, &quot;Кирилл&quot;)">
-                        <i class="fas fa-share me-2 text-primary"></i> Ответить</a>
-                
-                
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Comment item nested START -->
-    <ul id="forum-comments-41" class="list-unstyled ms-5 mb-3">
-        
-    </ul>
-
-    <!-- Comment item nested END -->
-</div>
-								
-									<div id="forum_message_container_50">
-    <div class="d-md-flex m-3">
-<!-- Avatar -->
-        <div class="avatar avatar-sm me-4 flex-shrink-0">
-            
-            <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-boy-100.png" alt="">
-            
-        </div>
-        <!-- Text -->
-        <div style="width:100%">
-            <div class="d-flex px-0 justify-content-between" style="margin-bottom:0.5rem">
-                <div>
-                    <a><b class="me-2 mb-0" style="color:black">Азамат Абдрахманов</b></a>
-                    <a class="text-body small me-2"><i class="far fa-clock me-1 text-primary"></i>{
-                        <span class="text-dark">Feb. 5, 2023, 10:17 a.m.</span></a>
-                </div>
-
-                <div id="forum-message-upvote-container-50">
-                    <a href="javascript:;" class="text-secondary mb-0" onclick="forum_upvote(19,189,50)"> <i class="fas fa-chevron-up me-2"></i></a> 
-                    <a id="forum-message-upvote-50" class="text-success small mb-0 me-2">0</a>
-                    
-                    
-
-                    
-                </div>
-
-            </div>
-            <!-- Info -->
-
-            <div id="forum-message-text-50" class="mb-2 text-break">Выложите пожалуйста коды в "файлы урока"</div>
-            <div id="forum-message-actions-50">
-                
-                    <a href="javascript:;" class="text-body small mb-0" onclick="forum_create_reply_input(19, 189, 50, &quot;Азамат&quot;)">
-                        <i class="fas fa-share me-2 text-primary"></i> Ответить</a>
-                
-                
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Comment item nested START -->
-    <ul id="forum-comments-50" class="list-unstyled ms-5 mb-3">
-        
-    </ul>
-
-    <!-- Comment item nested END -->
-</div>
-								
-									<div id="forum_message_container_48">
-    <div class="d-md-flex m-3">
-<!-- Avatar -->
-        <div class="avatar avatar-sm me-4 flex-shrink-0">
-            
-            <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-student-100.png" alt="">
-            
-        </div>
-        <!-- Text -->
-        <div style="width:100%">
-            <div class="d-flex px-0 justify-content-between" style="margin-bottom:0.5rem">
-                <div>
-                    <a><b class="me-2 mb-0" style="color:black">Nurdaulet Toleukhanov</b></a>
-                    <a class="text-body small me-2"><i class="far fa-clock me-1 text-primary"></i>{
-                        <span class="text-dark">Jan. 28, 2023, 11:43 p.m.</span></a>
-                </div>
-
-                <div id="forum-message-upvote-container-48">
-                    <a href="javascript:;" class="text-secondary mb-0" onclick="forum_upvote(19,189,48)"> <i class="fas fa-chevron-up me-2"></i></a> 
-                    <a id="forum-message-upvote-48" class="text-success small mb-0 me-2">0</a>
-                    
-                    
-
-                    
-                </div>
-
-            </div>
-            <!-- Info -->
-
-            <div id="forum-message-text-48" class="mb-2 text-break">Для меня было слишком сложно</div>
-            <div id="forum-message-actions-48">
-                
-                    <a href="javascript:;" class="text-body small mb-0" onclick="forum_create_reply_input(19, 189, 48, &quot;Nurdaulet&quot;)">
-                        <i class="fas fa-share me-2 text-primary"></i> Ответить</a>
-                
-                
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Comment item nested START -->
-    <ul id="forum-comments-48" class="list-unstyled ms-5 mb-3">
-        
-    </ul>
-
-    <!-- Comment item nested END -->
-</div>
-								
-							</section>
 						</div>
 						<!-- Review END -->
 					</div>
