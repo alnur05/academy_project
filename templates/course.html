@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main style="min-height: 95vh">
+	
+		<!-- Cookie alert box START -->
+<div class="alert fade show position-fixed end-0 z-index-99 d-flex flex-column align-items-end" style="bottom: 2em;" role="alert">
+    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+        <div class="card card-body border border-3 border-primary mb-2" style="width: 400px;">
+            <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  
+                    <img src="/static/template/assets/images/avatar/icons8-teacher-100.png" class="img-fluid rounded" alt="...">
+                  
+                </div>
+                <div class="col-6">
+                  <div class="card-body">
+                    <p class="m-0 card-text text-dark">Mirolim Saidakhmatov</p>
+                    <p class="card-text"><small class="text-muted">Ассистент</small></p>
+                    <p class="card-text"><small class="text-info"></small></p>
+                  </div>
+                </div>
+                  <div class="col-4 d-flex">
+                      
+                        <a href="https://t.me/s_mirolim" target="_blank" class="btn btn-round btn-primary-soft me-2"><i style="font-size: 1.5em" class="bi bi-telegram"></i></a>
+                      
+                  </div>
+              </div>
+        </div>
+    </div>
+    <p>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Ментор
+    </button>
+    </p>
+</div>
+<!-- Cookie alert box END -->
+	
+	<section class="py-0 pb-lg-5">
+		<div class="container-fluid" style="padding: 0;">
+			<div class="container text-white">
+	<div class="row">
+		<div class="card card-body shadow p-4 m-3" style="background-color: #ce4e4a">
+				<!-- Page banner -->
+				<div class="row d-flex justify-content-between">
+				
+					<!-- Avatar -->
+					<div class="col-auto mt-4 mt-md-0">
+					</div>
+					<div class="col d-md-flex justify-content-between align-items-center">
+						<div>
+							<h2 class="text-white my-1 fs-2">Power Bi</h2>
+						</div>
+						<div class="d-flex align-items-center mt-2 mt-md-0">
+						</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+		<!-- Profile banner END -->
+	</div>
+</div>
+<!-- Main Banner END -->
+		
+	</section>
+
+	<!-- Page content START -->
+	<section class="pt-0">
+		<div class="container">
+			<div class="row g-lg-5">
+				
+				<!-- Main content START -->
+				
+				<div class="col-lg-8">
+					<div class="row g-4">
+						<div class="col-12">
+							
+								
+<div style="height: 500px;" class="video-container">
+    <iframe id="lesson_video" width="100%" height="100%" src="https://player.vimeo.com/video/774117857?h=40e55dca96" frameborder="0" allowfullscreen="" data-ready="true"></iframe>
+</div>
+
+
+
+    <textarea id="editor" hidden=""></textarea>
+    <div class="markdown_preview" id="preview"></div>
+    
+    
+    <script>
+
+        let editor = document.getElementById('editor');
+        let preview = document.getElementById('preview');
+        preview.innerHTML = marked(editor.value);
+        hljs.highlightAll();
+    
+    </script>
+    
+
+
+
+
+
+<script>
+    // CORS Issues
+    var lesson_video_iframe = document.getElementById('lesson_video');
+    // Get video tag
+    let player = new Vimeo.Player(lesson_video_iframe); 
+    let courseId = 19;
+    let lessonId = 189;
+    let studentId = 276;
+    let sumTime = 0;
+    let lastTime = 0;
+    player.on('timeupdate', function(some) {
+        if ((some.seconds > lastTime) && (some.seconds - lastTime < 5)) {
+            sumTime += some.seconds - lastTime;
+            while (sumTime > 60) {
+                console.log('sumTime', sumTime);
+                sumTime -= 60;
+                fetch('/courses/' + courseId + '/lessons/' + lessonId + '/student/' + studentId + '/record_lesson_video_progress')
+            }
+        }
+        lastTime = some.seconds;
+    });
+
+</script>	
+							
+						</div>
+						<!-- Lesson Material Files START -->
+							
+						
+						<!-- Lesson Material Files END -->
+						<div class="row mb-1 mt-4">		
+							<h5>Оцените урок:</h5>
+							<ul id="lesson-rating-stars" class="list-inline mb-0">
+								
+									
+										<li onclick="change_rating(1)" class="list-inline-item me-0">
+											<span id="star-1" style="font-size: 24px;" class="fa fa-star"></span>
+										</li>
+									 
+								
+									
+										<li onclick="change_rating(2)" class="list-inline-item me-0">
+											<span id="star-2" style="font-size: 24px;" class="fa fa-star"></span>
+										</li>
+									 
+								
+									
+										<li onclick="change_rating(3)" class="list-inline-item me-0">
+											<span id="star-3" style="font-size: 24px;" class="fa fa-star"></span>
+										</li>
+									 
+								
+									
+										<li onclick="change_rating(4)" class="list-inline-item me-0">
+											<span id="star-4" style="font-size: 24px;" class="fa fa-star"></span>
+										</li>
+									 
+								
+									
+										<li onclick="change_rating(5)" class="list-inline-item me-0">
+											<span id="star-5" style="font-size: 24px;" class="fa fa-star"></span>
+										</li>
+									 
+								
+							</ul>
+						</div>
+						<!-- Review START -->
+						<div class="col-12">
+							<h5 class="mb-4">Форум урока</h5>
+
+							<!-- Comment box -->
+							<div id="forum-input-message-container" class="d-flex mb-4">
+    <!-- Avatar -->
+    <div class="avatar avatar-sm flex-shrink-0 me-2">
+        
+        <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-priest-100.png" alt="avatar">
+        
+    </div>
+
+    <form class="w-100 d-flex" action="/courses/19/lessons/189/create_forum_message" method="POST">
+        <textarea class="one form-control pe-4 bg-light" id="forum_comment" rows="1" name="text" placeholder="Добавьте комментарий..."></textarea>
+        <button type="button" class="btn btn-sm btn-primary ms-2 mt-2 mb-0 mt-sm-0" style="overflow:visible" onclick="forum_create_message(19, 189)">Отправить</button>
+    </form>
+</div>
+							
+							<section id="forum-comment-section">
+								
+									<div id="forum_message_container_41">
+    <div class="d-md-flex m-3">
+<!-- Avatar -->
+        <div class="avatar avatar-sm me-4 flex-shrink-0">
+            
+            <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-anonymous-100.png" alt="">
+            
+        </div>
+        <!-- Text -->
+        <div style="width:100%">
+            <div class="d-flex px-0 justify-content-between" style="margin-bottom:0.5rem">
+                <div>
+                    <a><b class="me-2 mb-0" style="color:black">Кирилл Ионкин</b></a>
+                    <a class="text-body small me-2"><i class="far fa-clock me-1 text-primary"></i>{
+                        <span class="text-dark">Jan. 8, 2023, 9:16 p.m.</span></a>
+                </div>
+
+                <div id="forum-message-upvote-container-41">
+                    <a href="javascript:;" class="text-secondary mb-0" onclick="forum_upvote(19,189,41)"> <i class="fas fa-chevron-up me-2"></i></a> 
+                    <a id="forum-message-upvote-41" class="text-success small mb-0 me-2">2</a>
+                    
+                    
+
+                    
+                </div>
+
+            </div>
+            <!-- Info -->
+
+            <div id="forum-message-text-41" class="mb-2 text-break">Было бы хорошо, если можно было бы смотреть результат на каждом этапе написания кода - иначе я запутался. А так инфа годная </div>
+            <div id="forum-message-actions-41">
+                
+                    <a href="javascript:;" class="text-body small mb-0" onclick="forum_create_reply_input(19, 189, 41, &quot;Кирилл&quot;)">
+                        <i class="fas fa-share me-2 text-primary"></i> Ответить</a>
+                
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Comment item nested START -->
+    <ul id="forum-comments-41" class="list-unstyled ms-5 mb-3">
+        
+    </ul>
+
+    <!-- Comment item nested END -->
+</div>
+								
+									<div id="forum_message_container_50">
+    <div class="d-md-flex m-3">
+<!-- Avatar -->
+        <div class="avatar avatar-sm me-4 flex-shrink-0">
+            
+            <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-boy-100.png" alt="">
+            
+        </div>
+        <!-- Text -->
+        <div style="width:100%">
+            <div class="d-flex px-0 justify-content-between" style="margin-bottom:0.5rem">
+                <div>
+                    <a><b class="me-2 mb-0" style="color:black">Азамат Абдрахманов</b></a>
+                    <a class="text-body small me-2"><i class="far fa-clock me-1 text-primary"></i>{
+                        <span class="text-dark">Feb. 5, 2023, 10:17 a.m.</span></a>
+                </div>
+
+                <div id="forum-message-upvote-container-50">
+                    <a href="javascript:;" class="text-secondary mb-0" onclick="forum_upvote(19,189,50)"> <i class="fas fa-chevron-up me-2"></i></a> 
+                    <a id="forum-message-upvote-50" class="text-success small mb-0 me-2">0</a>
+                    
+                    
+
+                    
+                </div>
+
+            </div>
+            <!-- Info -->
+
+            <div id="forum-message-text-50" class="mb-2 text-break">Выложите пожалуйста коды в "файлы урока"</div>
+            <div id="forum-message-actions-50">
+                
+                    <a href="javascript:;" class="text-body small mb-0" onclick="forum_create_reply_input(19, 189, 50, &quot;Азамат&quot;)">
+                        <i class="fas fa-share me-2 text-primary"></i> Ответить</a>
+                
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Comment item nested START -->
+    <ul id="forum-comments-50" class="list-unstyled ms-5 mb-3">
+        
+    </ul>
+
+    <!-- Comment item nested END -->
+</div>
+								
+									<div id="forum_message_container_48">
+    <div class="d-md-flex m-3">
+<!-- Avatar -->
+        <div class="avatar avatar-sm me-4 flex-shrink-0">
+            
+            <img class="avatar-img rounded-circle" src="/static/template/assets/images/avatar/icons8-student-100.png" alt="">
+            
+        </div>
+        <!-- Text -->
+        <div style="width:100%">
+            <div class="d-flex px-0 justify-content-between" style="margin-bottom:0.5rem">
+                <div>
+                    <a><b class="me-2 mb-0" style="color:black">Nurdaulet Toleukhanov</b></a>
+                    <a class="text-body small me-2"><i class="far fa-clock me-1 text-primary"></i>{
+                        <span class="text-dark">Jan. 28, 2023, 11:43 p.m.</span></a>
+                </div>
+
+                <div id="forum-message-upvote-container-48">
+                    <a href="javascript:;" class="text-secondary mb-0" onclick="forum_upvote(19,189,48)"> <i class="fas fa-chevron-up me-2"></i></a> 
+                    <a id="forum-message-upvote-48" class="text-success small mb-0 me-2">0</a>
+                    
+                    
+
+                    
+                </div>
+
+            </div>
+            <!-- Info -->
+
+            <div id="forum-message-text-48" class="mb-2 text-break">Для меня было слишком сложно</div>
+            <div id="forum-message-actions-48">
+                
+                    <a href="javascript:;" class="text-body small mb-0" onclick="forum_create_reply_input(19, 189, 48, &quot;Nurdaulet&quot;)">
+                        <i class="fas fa-share me-2 text-primary"></i> Ответить</a>
+                
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Comment item nested START -->
+    <ul id="forum-comments-48" class="list-unstyled ms-5 mb-3">
+        
+    </ul>
+
+    <!-- Comment item nested END -->
+</div>
+								
+							</section>
+						</div>
+						<!-- Review END -->
+					</div>
+				</div>
+				<!-- Main content END -->
+
+				<!-- Right sidebar START -->
+				<div class="col-lg-4">
+					<div class="row g-4">
+						<!-- Responsive offcanvas body START -->
+						<nav class=" navbar-expand-lg mx-0">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action active mt-4 " style="background-color: #ce4e4a;" aria-current="true">
+                                  <div class="d-flex w-100 justify-content-between ">
+                                    <h5 class="mb-1">1 урок</h5>
+                                    <small></small>
+                                  </div>
+                                  <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                  <small>And some small print.</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action mt-4">
+                                  <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">2 урок</h5>
+                                    <small class="text-body-secondary"></small>
+                                  </div>
+                                  <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                  <small class="text-body-secondary">And some muted small print.</small>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action mt-4">
+                                  <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">3 урок</h5>
+                                    <small class="text-body-secondary"></small>
+                                  </div>
+                                  <p class="mb-1">Some placeholder content in a paragraph.</p>
+                                  <small class="text-body-secondary">And some muted small print.</small>
+                                </a>
+                              </div>
+						<!-- Responsive offcanvas body END -->
+
+						
+					</div><!-- Row End -->
+				</div>
+				<!-- Right sidebar END -->
+
+			</div><!-- Row END -->
+		</div>
+	</section>
+	<!-- Page content END -->
+</main>
+</body>
+</html>
