@@ -1,6 +1,6 @@
-from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
 
 
 def login_view(request: HttpRequest) -> HttpResponse:
