@@ -1,18 +1,22 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
-from market.models import Course, CourseForUser
+from market.models import Course, CourseForUser2
 
 
 def show_courses(request: HttpRequest) -> HttpResponse:
+    global course_available
     user = request.user
     if not user.is_authenticated:
         return redirect("/login")
-    course_available = CourseForUser(user_id=user.id).all()
+    # if CourseForUser2.object == user.username:
+    #     course_available = "avail"
+    # else:
+    #     course_available = "not avail"
+
     context = {
         "courses": Course.objects.all(),
-        "CoursesForUser": CourseForUser.objects.all(),
-        "course_available": course_available,
-        "user_id": user.id
+        "CoursesForUser2": CourseForUser2.objects.all(),
+        "username": user.username
     }
     return render(request, "index.html", context)
 
